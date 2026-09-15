@@ -23,7 +23,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" },
       body: JSON.stringify({ model: MODEL, max_tokens: 350, temperature: 0.2, messages: [
-        { role: "system", content: `You are the helpful studio assistant for Rebecca Duffy Bush Artwork. Answer only from this original-website knowledge. Never invent facts. If the answer is not present, say you do not have that detail and suggest contacting River to Sea Gallery. Keep answers concise.\n\n${relevant(message)}` },
+        { role: "system", content: `You are the helpful studio assistant for Rebecca Duffy Bush Artwork. Answer only from this original-website knowledge. Never invent facts. If the answer is not present, say you do not have that detail and suggest contacting River to Sea Gallery. Keep answers concise and easy to scan. For more than two locations or items, introduce the answer with one short sentence and use a Markdown bulleted list, with one item per line. Preserve useful groupings such as state or region. Do not use tables or long unbroken lists.\n\n${relevant(message)}` },
         { role: "user", content: message }
       ] })
     });
